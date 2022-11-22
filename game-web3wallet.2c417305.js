@@ -30464,7 +30464,7 @@ function processAction() {
     return sendTransaction(chainId, to, value, gasLimit, gasPrice, data);
   }
 
-  displayResponse("Invalid URL");
+  displayResponse("Geçersiz URL.");
 }
 
 async function sendTransaction(chainId, to, value, gasLimit, gasPrice, data) {
@@ -30508,10 +30508,10 @@ async function signMessage(message) {
     console.log({
       signature
     });
-    displayResponse("Signature complete.<br><br>Copy to clipboard then continue to App", signature);
+    displayResponse("İmzalama İşlemi Tamamlandı.<br><br>Kopyalama İşlemi Sonrasında Uygulamaya Geçebilirsiniz.", signature);
   } catch (error) {
     copyToClipboard("error");
-    displayResponse("Signature Denied");
+    displayResponse("İmzalama İşlemi iptal Edildi.");
   }
 }
 
@@ -30523,7 +30523,7 @@ async function copyToClipboard(response) {
     await new Promise(resolve => setTimeout(resolve, 500)); // copy tx hash to clipboard
 
     await navigator.clipboard.writeText(response);
-    document.getElementById("response-button").innerHTML = "Copied";
+    document.getElementById("response-button").innerHTML = "Kopyalandı";
   } catch {
     // for metamask mobile android
     const input = document.createElement("input");
@@ -30531,7 +30531,7 @@ async function copyToClipboard(response) {
     input.value = response;
     document.body.appendChild(input);
     input.select();
-    document.execCommand("Copy");
+    document.execCommand("Kopyala");
     input.style = "visibility: hidden";
     document.getElementById("response-button").innerHTML = "Copied";
   }
@@ -30552,4 +30552,4 @@ function displayResponse(text, response) {
   }
 }
 },{"regenerator-runtime/runtime":"KA2S","ethers":"iS6H","ethers/lib/utils":"if8b"}]},{},["Focm"], null)
-//# sourceMappingURL=/game-web3wallet/game-web3wallet.91ce19e7.js.map
+//# sourceMappingURL=/game-web3wallet/game-web3wallet.2c417305.js.map
